@@ -678,9 +678,10 @@
         3. **Medicines (Critical)**: 
            - Identify the list of herbs/formulas.
            - **Translate**: Convert Chinese name to Pinyin AND English Botanical/Scientific name. 
-           - **Dosage**: The receipt usually shows "Daily Dose" or "Single Dose x Frequency". You MUST calculate the **Total Daily Dosage** in grams. 
-             - Example: If it says "0.3克" (0.3g) and frequency is "每天3次" (3 times/day), the Daily Dosage is 0.9g.
+           - **Dosage**: The receipt usually shows "Daily Dose". You MUST calculate the **Total Daily Dosage** in grams. 
            - Split items into "Prescription Medicines" (RX 1 - Scientific Powder) and "Supplements/Self-paid" (RX 2 - e.g., 16防, Red powder, etc.) if clear sections exist. If not, put all in Medicines.
+           - **Duration of the prescription**: The receipt shows "給藥日份：", you show the days of prescription.
+               - Example: If it shows "給藥日份：4天份", then convert to "4 days".
            
         RETURN JSON ONLY. No markdown. Structure:
         {
@@ -692,7 +693,7 @@
           "diagnosis": "English Disease Name",
           "icdCode": "ICD Code (e.g. R06.7)",
           "medicines": [
-            { "name_zh": "Chinese Name", "name_en": "Pinyin / Botanical Name", "dosage_daily": "0.9 g" }
+            { "name_zh": "Chinese Name", "name_en": "Pinyin / Botanical Name", "dosage_daily": "1.0 g" }
           ],
           "supplements": [
              { "name_zh": "Chinese Name", "name_en": "English Name", "dosage_daily": "0.3 g" }
@@ -915,5 +916,6 @@
     </script>
 </body>
 </html>
+
 
 
